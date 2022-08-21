@@ -1,0 +1,272 @@
+Instalando Linux
+
+    Baixamos o Ubuntu Server
+
+    Baixamos o Virtual box 
+    
+
+Criando máquinas virtuais
+
+
+    Abra o cmd no modo adm
+
+    digite bcdedit
+
+    localize hypervisorlaunchtype que deve estar em modo off
+
+    caso esteja no modo auto digite 
+        
+        bcdedit /set hypervisorlaunchtype off
+
+    caso o hypervisorlaunchtype nao apreça faça o seguinte:
+
+        va em painel de controle
+
+        em programas
+
+        ativar e desativar recusos
+
+        procure plataforma do hypervisor do windows
+
+
+
+    
+    No vitual box vamos criar uma maquina virtual (As maquinas virtuais sao computadores )
+
+    Clique em novo
+
+    de um nome
+
+    escolha a versao do sistema operacional
+
+    escolha o tamanho da memoria
+
+    escolher o disco rigido virtual 
+
+    clicque em criar
+
+    escolha o local do arquivo 
+
+    escolha o tamanho do arquivo
+
+    escolha o tipo de arquivo
+
+    escolha o tipo de armazenamento
+
+    Clique em criar
+
+
+    depois de criada
+
+    clique em configurações
+
+    rede
+
+    escolha Conectado a : Placa em modo Bridge
+
+    escolha o tipo de conexao em Nome: ecolha o tipo de conexao
+
+    agora em armazenamento 
+
+    escolha controladora IDE
+
+    em Atributos escolha a ISO
+
+    ok
+
+    pronto clicque em iniciar
+
+    caso de erro a vitualização pode estar desligada na bios (google)
+
+
+
+Instalando o Ubuntu
+
+    escolha o idioma
+
+    clique em continuar
+
+    escolha o layoute do teclado
+
+    definicao de rede (continue) 
+
+    servidor proxy (continue)
+
+    continuar...
+
+    Preencha nome, dome do servidor, nome de usuario, senha
+
+    token (continue)
+
+    instale o OpenSSH server 
+
+    escolha os app que deseja instalar junto com o Linux
+
+    retire o disco da maquina virtual (dispositimos > discos > remover disdo do drive)
+
+    reboot Now na tela de instalação (ou maquina > reiniciar)
+
+    coloque o username e a senha
+
+
+* para reiniciar digite reboot (caso acuse que nao ha permissao use sudo reboot )
+
+* desligar a maquina virtual, shutdown + tempo para desligar 
+
+    Ex shutdown 0 (desliga na hora)
+
+    
+Criando uma conta na AWS
+
+
+    aws free tier (nivel gratuito)
+
+
+
+AWS - Criando uma máquina virtual em nuvem (EC2)
+
+
+    em EC2
+
+    escolha o nome da maquina virtual
+
+    escolha a distribuicao que vai usar
+
+    escolha a arquitetura
+
+    criar o par de chaves (salve o arquivo pem gerado)
+
+    permita SSH
+
+
+Utilizando o WSL
+
+    subsistema do window para Linux
+
+
+
+
+Acesso remoto via Windows
+
+    
+    saiba o ip da maquina
+
+    instale o Open SSH no linux
+    
+        sudo apt-get install openssh-server 
+
+
+
+    no prompt escreva  do linux
+
+            ip a (o valor de inet é o ip da maquina)
+
+    baixe o Putty em chiark.greenend.org.uk
+
+        putty.exe
+            +
+        puttygen.exe 
+
+    abra o putty
+
+    coloque o ip da maquina que quer acessar em host name
+
+    a maquina com windows devera estar na mesma frequencia da maquina linux
+
+        confira no windows: cmd >  ipconfig > olhe o ipv4
+
+    
+    
+
+
+
+Acesso remoto via Linux
+
+    via terminal
+
+    ssh nomeDeUsuario@ipDaMaquina
+
+
+Acessando uma máquina virtual em nuvem pelo windows (Putty)
+
+    acesse a instancia que deseja acessar na nuvem
+
+    encontre o ip da maquina virtual
+
+    abra o putty
+
+    converta o arquivo pem (baixado da nuvem) para ppk
+
+        abra o arquivo puttygen
+
+        encontre o arquivo pem na maquina fisica
+
+        clique em save private key
+
+        salve o arquivo ppk
+
+    no Putty em configurações
+
+        escolha conection
+
+        escolha auth
+
+        escolha o arqivo pem 
+
+    em sessao coloque o ip da maquina virtual
+
+
+
+Acessando uma máquina virtual em nuvem no linux(ssh)
+
+    abra o terminal onde se encontra o arquivo pem
+
+    digite
+
+        ssh -i Ubuntu-AWS.pem usuario@ipDaMaquina
+
+    troque as permisoes do arquivo
+        
+        sudo chmod 600 Ubuntu-AWS.pem
+
+    
+
+Excluindo uma instância na AWS
+
+    na aws
+
+    clie em excluir instancia 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+

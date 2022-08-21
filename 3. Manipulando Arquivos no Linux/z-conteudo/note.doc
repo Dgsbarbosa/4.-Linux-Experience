@@ -1,0 +1,350 @@
+Manipulando Arquivos no Linux
+
+    
+Terminal Linux - Apresentação
+
+    nomeDoUsuario@nomeDaMaquina:~$
+
+    confira o ip da maquina
+
+        ip a
+
+    $ - usuario comum
+
+    # - usuario root
+
+    date -  retorna retorna data e hora
+
+    clear/ctrl + l - limpa o terminal
+
+
+
+Navegando pelo sistema de arquivos
+
+    ~ (tio) - pasta do usuario 
+
+    pwd - retorna o diretorio em que o usuario esta
+
+    / (barra) - é a raiz
+
+    cd caminho - vai até determinada pagina
+
+        Ex. cd / (ele ira para o diretorio raiz)
+
+    ls - lista os diretorios e arquivos que estao no diretorio 
+
+    cd- abre o diretorio    
+
+    cd .. - volta para o diretorio anterior
+
+    cd ../diretorio - volta para o diretorio anterior e ja vai para outro diretorio 
+
+    cd /diretorio/doretorio2 - vai para o diretorio especificado
+
+    cd /diretorio + 2 x tab - mostra os diretorios e arquivos 
+
+
+Filtrando a exibição de arquivos
+
+    ls | more - faz uma lista que é rolada ao pressionar enter
+
+        ctrl + c - sai do more 
+
+    ls nomeDoArquivo - mostra os arquivos e diretorios correspondente ao nome 
+
+    ls filtro* - filtro pode ser uma letro, um nome 
+
+    ls m?g* - retorna diretorios e arquivos que tenham m e g
+
+    touch nomeDoArquivo - cria arquivos
+
+    cd ~ - vai para a pasta de usuario
+
+    ls nomeDoArquivo [1-3]* - lista com um intervalo
+
+    ls nomeDoArquivo [1,3]* - lista com um apenas os correspondente ao parametro
+
+    ls nomeDoArquivo [^2,5]* - lista todos menos os  correspondente ao parametro
+
+
+     
+Localizando arquivos
+
+    ls /nomeDoDiretorio/nomeDoDiretorio - mostra o que tem no diretorio
+
+    ls /nomeDoDiretorio/filtro* - mostra os diretorios e arquivos correspondente ao filtro que pode ser uma letra
+
+*diretorio em azul escuro e em azul claro
+
+    find - busca especifica por arquivos
+        
+        find -name nomeDoArquivo* - localiza o arquivo 
+
+
+
+Criando diretórios
+
+    mkdir nomeDoDiretorio - cria um DiretonomeDoDiretorio dentro do diretorio que esta no momento
+
+    mkdir /nomeDoDiretorio/nomeDoDiretorio - cria um DiretonomeDoDiretorio dentro do diretorio especificado
+
+
+Excluindo arquivos e diretórios
+
+    mkdir  'Nome do DiretonomeDoDiretorio' - as aspas simples permite que seja usado espaços para pesquisa e criação de diretorio
+
+    rmdir nomeDoDiretorio - exclui diretorios que não tenham conteudo
+
+        Ex.: 
+
+        rmdir nomeDoDiretorio1 nomeDoDiretorio2
+
+
+    rm nomeDoArquivo - exclui arquivos
+
+    rm nomeDosArquivos* - exclui todos os arquivos com o mesmo nome 
+
+    rm *.txt - exclui os arquivos com a extensão selecionda
+
+    rm -rf nomeDoDiretorio -  exclui diretorios que tenham conteudo
+
+
+
+Obtendo ajuda
+
+    ls --help - obter ajuda 
+
+    ls -l - lista longa, retorna as informacoes do diretorio
+
+        Ex. dr-xr-x 9 root root 236532  data lib -> usr
+                   	
+
+        (se comocar com d (diretorio) , se for - (arquivo))
+        (os numeros mostram a quantidade de objetos dentro do diretorio)
+        (os dois nomes representam o dono e o grupo a quem eles pertencem)
+        (os numeros representam o tamaanho)
+        ()
+
+    ls -a (--all) - retorna todos os arquivos inclusive os ocultos
+
+    ls -h (--human-readable) - retorna os valores em kbytes, megabytes, gigabytes...
+
+*pode juntar os comandos EX.: ls -hal
+
+
+    -v (--verbose) - mostra o que esta acontecendo naquele momento
+
+    -i - pede confirmação de exclusão de diretorios e arquivos 
+
+    man comandoQueDesejaAjuda - retorna a ajuda para aquele comando 
+
+        Ex.: man ls 
+
+
+    site de ajuda ubuntu
+
+        help.ubuntu.com 
+
+     
+
+Executando tarefas administrativas como root
+
+    cat /nomeDoDiretorio/nomeDoArquivo - lê um arquivo de texto    
+
+        Ex.: cat /etc/group (retorna os grupos do sistema)
+
+        Para executar tarefas administrativas o usuario deve estar nos grupos adm e sudo
+
+
+    sudo - permite realizar tarefas de administrador
+
+    
+    Ex.: cat /etc/sudoers (retorna membros adm)
+
+
+Logando como usuário root
+
+
+    sudo passwd root - adiciona uma senha para o usuario selecionado
+
+    su - loga como super usuario 
+
+* $ usuario normal, # super usuario
+
+    su nomeDoUsuario - volta para o usuario normal
+
+
+Liberando acesso remoto do usuário root
+
+    SSHD 
+
+        cat etc/ssh/sshd_config - retorna a configuração do SSHD
+
+    Usando o nano 
+
+        sudo nano /etc/ssh/sshd_config - edita arquivos de texto 
+
+
+        ctrl + x - sai da edição
+
+        ctrl = ^
+
+        Altere o PermitRootLogin 
+
+            retire o #
+
+            e mude o PermitRootLogin para yes
+
+            ctrl + o - salva o arquivo
+
+            de um reboot no sistema ou reestarta o arquivo 
+
+            systemctl status sshd- retorna o status do serviço a ser analizado
+
+            systemctl restart sshd - reestarta o serviço
+
+
+
+Trabalhando com arquivos de texto
+
+    Trabalhando com VI 
+
+        vi nomeDoArquivo.txt - verifica se ha o arquivo e o abre, caso nao tenha é criado 
+
+        no terminal aperte i para entrar no modo de inserção 
+
+        a tecla esc sai do modo inserção
+
+        os : (dois pontos) abre um cursor para inserir comando
+
+        w - salva a edição
+
+        q - sai do arquivo
+
+    
+    Trabalhando com nano
+
+        nano nomeDoArquivo - abre a edição do arquivo 
+
+
+Histórico de comandos
+
+    history - retorna o histórico do usuario 
+
+        Ex.: history 30 - retorna o histórico do usuario até o numero de comando definidos (no caso 30)     
+
+    reutilizando comandos 
+
+        Ex.: !numeroDoComando (listagem do histórico)
+            
+             !! (executa o ultimo comando)
+
+             !?termoProcurado? (encontra comandos com os termos solicitados )
+
+    
+    history | grep "termoProcurado" - retorna a lista de comandos usados 
+
+
+    export HISTIMEFORMAT="%C" - retorna a data e hora que o comando foi usado usando history depois
+
+    history -c - deleta o historico 
+
+    set +o history - não salva o historico de comandos 
+
+    set -o history - volta a salvar o historico de comandos 
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
