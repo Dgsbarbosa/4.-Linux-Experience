@@ -1,0 +1,151 @@
+Gerenciando Usuários no Linux
+
+criar ususario
+
+    logado como root
+
+    useradd nomeDeLogon (sem acento, sem espaço)
+
+    ex 
+
+        useradd joao -m -c "Nome do Usuários ou um comentario"
+
+excluir ususario
+
+    userdel -f nomeDeLogon (-f força a excusao)
+
+    userdel -r -f nomeDeLogon (apaga usuario e diretorios)
+
+
+criar senha
+
+    passwd nomeDeLogon (cria senha)
+
+
+chsh -s /bin/bash nomeDeLogon (mostra o shel que o usuario vai usar)
+
+Criando usuario ja com bash 
+
+    useradd nomeDeLogon -m -c "Nome do Usuário" -s /bin/bash
+
+
+
+Editando informações do usuário
+
+
+    Usuario com data limite para o usuario
+
+    useradd nomeDeLogon -c "Nome de Usuario" -m -e dataExpiracao
+
+    -e define a expiração do acesso
+
+    usermod nomeDeLogon -s /bin/bash (edita o usuario)
+
+
+
+Pedir para o usuario trocar a senha
+
+    passwd guest (troca a senha)
+
+    passwd guest -e (solicita que o usuario troque a senha, podendo colocar a data prazo para fazer a troca)
+
+
+Verificar os usuarios cadastrados
+
+    cat /etc/passwd (mostra as informações dos usuarios criados)
+
+
+Shell Script - Criando usuários em lote
+
+    declarar senha na criação do usuario
+
+    useradd nomeDeLogon -c "Nome ou Texto" -s /bin/bash -m -p $(openssl passwd -crypt senhaDesejada)
+
+
+Criando Script
+
+    #!/bin/bash (cria um Script)
+
+    echo " Criando usuario do sistema..."
+
+    useradd nomeDeLogon -c "Nome ou Texto" -s /bin/bash -m -p $(openssl passwd -crypt senhaDesejada)
+
+    echo "Finalizado"
+
+Liberar execução de do arquivo
+
+    chmod +x nomeArquivo.sh
+
+
+
+Adicionando usuários a grupos
+ 
+    
+    verificar os grupos
+
+        cat etc/group
+
+
+    Adicionando o usuario no grupo adm e sudo
+
+        usermod -G adm,sudo nomeUsuario
+
+        -g adiciona apenas em um grupo
+        -G adiciona em varios grupos
+
+    
+Criando novos grupos
+
+    groupadd GRP_NOMEGRUPO
+
+    groupdel GRP_NOMEGRUPO
+
+Adicionando ususario ao grupo
+
+
+    useradd nomeDeLogon -c "Nome ou Texto" -s /bin/bash -m -p $(openssl passwd -crypt senhaDesejada) -G GRP_NOMEGRUPO
+
+Mudando um usuario de grupo
+
+    usermod -G GRP_NOMEGRUPO nomeUsuario
+
+    Quando usa o -G o usuario sai dos grupos em que estava
+
+Remover usuario do grupo
+
+    gpasswd -d nomeUsuario nomeGrupo 
+
+Conhecendo o sistema de permissões
+
+    
+    ls -l (mostra as caracteristicas e permissões)
+
+        R - read
+        
+        W - write
+        
+        X - execute
+
+    
+    O primeiro bloco diz respeito ao dono, o segundo bloco diz respeito ao grupo, o terceiro bloco dis respeito aos outros
+
+
+    Mudar o dono e o grupo
+
+        chown - (change owner/alterar proprietario)
+
+        só pode ser feito com o usuario root
+
+        Ex.:
+
+            chown nomeUsuario:GRP_NOMEGRUPO /diretorio/ 
+
+
+
+
+
+
+
+
+
+
