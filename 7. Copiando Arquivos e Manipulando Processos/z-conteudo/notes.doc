@@ -1,0 +1,105 @@
+Copiando Arquivos e Manipulando Processos
+
+
+Copiando Arquivos
+
+    1 Onde estao os Arquivos
+
+    2 Quais Arquivos
+
+    3 Pra onde vao
+
+    Comando
+
+        cp (abreviação de copy)
+
+        cp --help
+
+    Copiando um arquivo
+
+        cp origem/arquivo.ext /destino/
+
+        Ex.:
+
+        cp /home/teste/teste.txt /disk2/
+
+    Copiando com filtro
+
+        cp origem/*.ext /destino/
+
+        Ex.:
+
+        cp /home/teste/*.txt /disk2/ (copia todos os arquivos .txt)
+
+        cp /home/teste/a*.txt /disk2/ (copia todos os arquivos que iniciam com "a" e tem a extensão .txt)
+
+    *Quando se esta na pasta de origem basta colocar ./ em vez de colocar o caminho completo
+
+    *Do modo anterior os arquivos iguais na pasta de destino são sobrescritos.
+
+        Para solicitar confirmação para sobrescrever use:
+        
+            cp origem/*.ext /destino/ -i (o "-i" pode ser no final ou apos o cp)
+
+        Para copiar todos os arquivos e diretorios
+
+            cp origem/* /destino/ -r (ou --recursivo, copia todos os arquivos e diretorios )
+        
+
+        Para que seja descrito o Processos
+
+            cp origem/* /destino/ -v (o "-v" descreve o processo)
+
+Renomeando Movendo arquivos
+
+    Movendo
+    
+        mv origem/arquivo.ext /destino/ (caso seja adicionado um texto apos a barra o arquivo sera renomeado)
+
+    Renomeando
+
+        mv nomeArguivo.ext novoNome.ext
+
+
+Iniciando, visualizando e encerrando um processo
+
+    visualizando os Processos
+
+        No termminal
+
+            ps (retorna os processos chamados diretos no terminal e do usuario atual)
+
+            ps -a (retorna os processos de todos os usuarios)
+
+            ps -u (retorna o nome do usuario e o horario)
+
+            ps -x (retorna os processos chamados fora do terminal, no ambiente grafico)
+
+            Ex. (pode se usar o "-")
+
+                ps aux
+
+    Matando um processo  
+    
+        Use "kill" + o ID (derruba o processo especifico)
+
+            Ex. kill 1234 (derruba um processo)
+
+        Use "killall + nome (derruba todos os processos com o nome)
+
+            Ex. killall chrome (derruba o conjunto de processos)
+
+
+    Ver usuarios
+
+        Como usuario root use o "w"
+
+    Ver Pin de usuario
+
+        who -a 
+
+    Derrubar usuario
+
+        kill + Pin
+
+        

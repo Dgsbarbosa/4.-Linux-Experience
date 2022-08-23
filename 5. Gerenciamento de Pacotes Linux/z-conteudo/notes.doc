@@ -1,0 +1,91 @@
+Gerenciamento de Pacotes Linux
+
+
+    Gerenciamento de pacotes (UBUNTU-DEBIAN)
+
+
+        Para baixar pacotes 
+
+            O primeiro que temos é apt-get que um gerenciador de mais baixo nivel
+
+            O segundo é o apt que é um gerenciador de mais alto nivel 
+
+            Ex.:
+
+                apt-get --help
+
+                apt --help 
+
+            apt list (Buscando pacotes disponiveis para baixar)
+
+            apt list --installed (busca pacotes instalados na maquina)
+
+            apt list --upgradeable (busca atualização)
+
+        *Antes de criar atualizações faça um snapshot e um backup para evitar conflitos
+
+            apt search nomePacote (retorna os pacotes)
+
+            pat install nomePacote (instala o pacote)
+
+            ifconfig (retorna o ip da maquina e outras informações)
+
+            wget linkDownload(usado para fazer download)
+
+            apt install unzip (instala o zip)
+
+            unzip nomeArquivo.zip (descompacta o zip)
+
+            apt remove nomePacote (exclui o pacote com confirmação)
+
+            apt remove nomePacote -y (exclui o pacote sem confirmação)
+
+            apt edit-sources (retorna os links dos diretorios na maquina, caso queira baixar baixar pacotes de outros repositorios, deve-se salvar o link neste arquivo )
+
+
+Atualização do sistema operacional
+
+
+    Nos ambientes virtuais voce pode duplicar a maquina ou fazer um screenshots para fazer os tesstes antes de fazer a atualização
+
+    Antes de atualizar o sistema
+
+        1 - atualizar os pacotes apt update
+
+        2 - atualiza o sistema apt upgrade
+
+
+Instalação de pacotes no ambiente Desktop
+
+
+    Podemos fazer pela loja
+
+    os procedimentos pelo terminal são os mesmos
+
+
+Gerenciamento de pacotes (FEDORA RED HAT CenTOS)
+
+    Aqui temos dois tipos de gerenciadores
+
+        dnf - mais amigavel, alto nivel
+
+        yum - mais para scripts, baixo nivel
+
+        O comando --help retorna os comandos possiveis
+
+        nesse caso só temos o update que ja verifica e atualiza o sistema, não há upgrade
+
+
+
+Realizando a instalação de arquivos DEB
+
+
+    São arquivos executaveis, no ubuntu e debian é a extensão .deb e nos outros é o .rpm
+
+    apt install ./nomeArquivoExecutavel
+
+    
+
+            
+
+

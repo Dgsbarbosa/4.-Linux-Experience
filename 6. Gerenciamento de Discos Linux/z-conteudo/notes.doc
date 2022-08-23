@@ -1,0 +1,114 @@
+Gerenciamento de Discos Linux
+
+
+Discos, sistemas de arquivos e partições
+
+    Discos - hd's, ssd's  
+
+
+Sistemas de arquivos
+
+    É um padrao como o sistema operacional usa para controlar como os dados sao armazenados e recuperados
+    
+        MacOS        -   HFS
+
+        Unix/Linux   -   Ext3, Ext4, XFS
+
+        Windows      -   FAT32, NTFS
+        
+
+
+    Particionamento
+
+        Divisão de um disco.
+
+        No windows ele é reconhecido por uma letra C , D, E ...
+
+        No linux cada disco recebe um nome iniciado com sd, sda, sdb, sdc ... E as particoes são reconhecidos como sda1, sda2, sdb1, sdb2
+
+
+
+Adicionando um novo disco
+
+
+    Listar discos 
+
+        lsblk (retorna os discos e as partições)
+
+        fdisk -l (retorna os discos e as partições)
+    
+        *loop é um disco virtual.
+
+    
+Particionando e formatando discos via terminal
+
+    Criando particoes primaria 
+
+        fdisk /dev/sda - cuidado ao escolher o disco 
+
+    Formatando 
+
+        mkfs.fileSistem
+
+        Ex.: mkfs.ext4 
+
+ Montando e desmontando discos
+
+    Para montar
+
+    1 crie uma pasta na raiz
+
+    2 crie uma pasta dentro desta pasta 
+        (ex. disco2)
+
+    3 dentro de mnt use mount /dev/disco /mnt/diretorio/
+
+        Ex.
+
+            mount /dev/sdb /mnt/disco2 
+
+    tudo que for salvo neste diretorio sera salvo no disco 
+
+
+Para desmontar
+
+    Na raiz
+        
+        umount /dev/sdb 
+
+
+Montando discos automaticamente
+
+
+    Consultar onde os discos estão montados
+
+        lsblk
+
+
+    Montando automaticamente
+
+       1 conectado como root
+
+       2 nano /etc/fstab
+
+       3 indique disco, pra onde vai, sistema de arquivos
+
+        Ex. dev/sdb /disco2 ext4 defauts 0 0
+
+        4 salve
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
