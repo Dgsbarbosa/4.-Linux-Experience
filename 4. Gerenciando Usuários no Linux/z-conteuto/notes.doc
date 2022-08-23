@@ -10,6 +10,8 @@ criar ususario
 
         useradd joao -m -c "Nome do Usuários ou um comentario"
 
+        -m =diretórios do usuário sejam criados dentro do diretório /home?
+
 excluir ususario
 
     userdel -f nomeDeLogon (-f força a excusao)
@@ -126,7 +128,7 @@ Conhecendo o sistema de permissões
         
         X - execute
 
-    
+    São blocos de tres
     O primeiro bloco diz respeito ao dono, o segundo bloco diz respeito ao grupo, o terceiro bloco dis respeito aos outros
 
 
@@ -140,6 +142,52 @@ Conhecendo o sistema de permissões
 
             chown nomeUsuario:GRP_NOMEGRUPO /diretorio/ 
 
+
+
+Alterando as permissões de um diretório - arquivo
+
+    o jeito mais facil de fazer é com base numerica
+
+    leitura (R) = 4
+
+    Gravação(W) = 2
+
+    Execução(X) = 1
+
+    Nenhuma     = 0
+
+    Para dar as permissoes basta somar as base numericas que correspondem aos tipos de permissoes
+
+    Ex.:  leitura (R) = 4 + Gravação(W) = 2 = 6
+
+    sempre começa pelo dono
+
+    chmod 750 /nomeDiretorio
+
+    Onde 
+
+        O primeiro numeral refere ao dono
+
+        O segundo numeral refere-se ao grupo
+
+        O terceiro numeral refere-se aos demais 
+
+        
+
+Entendendo melhor as permissões de execução para scripts
+
+    Criando um script
+
+        nano nomeArquivo.sh (script sempre com .sh)
+
+        no arquivo referencie o script com #!/bin/bash
+
+        echo "Escreve na tela"
+
+
+        rodando o script
+
+        ./nomeArquivo.sh
 
 
 
