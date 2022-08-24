@@ -1,0 +1,118 @@
+Servidores de Arquivos com Linux
+
+Introdução ao servidor de arquivos
+
+    No servidor de arquivos é centralizado para que todos possam tem acesso, podendo ser local ou em nuvem
+
+    O windows usa o SMB para fazer o compartilhamento de arquivos entre o servidor e entre maquinas
+
+    O Linux usa o protocolo Samba
+
+
+Instalação do SAMBA e configuração inicial
+
+
+    site 
+     
+     https://wiki.samba.org/index.php/Main_Page
+
+     Instalação
+
+        apt install samba -y
+
+    * não é aconselhavel que o sistema de arquivos esteja junto com o sistema operacional no mesmo disco
+
+    Criando pasta compartilhada
+
+        1 - mkdir nomePasta (cria a pasta)
+
+        2 - chmod 777 nomePasta/ (altera as pemissões)
+
+        3 - nano /etc/samba/smb.conf (altera as configuraçoes do sistema de arquivos)
+
+        4 - no final deste arquivo especifique as configuraçoes da sua pasta compartilhada deste modo:
+
+            [nomeCompartilhamento] (para nomear o compartilhamento, não precisa ser o mesmo nome da pasta)
+
+            path = caminhoPasta (indica o caminho da pasta compartilhada)
+
+            writable = yes (libera a pasta para gravação)
+
+            guest ok = yes (libera o acesso a todos)
+
+            guest only = yes (todos que acessarem serao convidados)
+
+            Ex.:
+
+            [publica]
+            
+            path = /disk2/publica
+            writable = yes
+            guest ok = yes
+            guest only = yes
+
+
+        5 - Salve
+
+    
+    Reiniciar o serviço do Samba
+
+    *daemon (serviços em segundo plano)
+
+        systemctl restart smbd (reestarta o samba)
+
+        systemctl status smbd (retorna o status do samba)
+
+        systemctl enable smbd (inicia junto com o servidor)
+
+Configurando o acesso via máquina cliente
+
+    O acesso é via ip
+
+        ip a (retorna o ip)
+
+        para a pessoa precisa estar no acesso do servidor
+            Confira com: 
+            passwd
+
+    
+    No windows
+
+        1 na barra do explorador de arquivos coloque
+
+            \\ipAcesso\nomeCompartilhamento
+
+            Ex. 
+
+                \\10.0.0.19\publica
+
+            As credencias são as do usuario salvo no servidor Linux
+
+    
+    
+    Para criar uma caminho de Rede no windows
+
+        1 botao direito em Este Computador
+
+        2 Mapear Unidade de Rede
+
+        3 Escolha a letra
+
+        4 coloque a pasta (Ex.: \\10.0.0.19\publica)
+
+        5 escolha reconectar na entrada
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+

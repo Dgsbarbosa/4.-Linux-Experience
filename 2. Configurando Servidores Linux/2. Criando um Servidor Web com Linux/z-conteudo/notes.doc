@@ -1,0 +1,72 @@
+Criando um Servidor Web com Linux
+
+
+O que é um servidor WEB
+
+    Servidor DNS - Domain Name System ou Sistema de nomes de dominio
+
+    Usuario > digita endereço > consulta DNS > retorna o ip para o Usuario > que acessa o servidor o web > o servidor web retorna os arquivos
+
+
+Teste de ip 
+
+    no cmd
+
+    ping + dominio
+
+    Ex.: ping www.google.com.br
+
+
+Instalando o apache2
+
+
+    No Linux
+
+    apt install apache2 (com -y autoriza tudo)
+
+
+    Teste
+
+        ip a (retorna o ip)
+
+        com o ip entre no google e verifique se o ip entra no apache2
+
+
+    Para ver o html do apache no Linux
+
+        cd /var/www/html/
+
+        criando html com nano
+
+            nano index.html 
+
+    
+Executando aplicações web em um servidor Linux
+
+    Na AWS
+
+        Crie um EC2 com ppk para o putty
+
+        Atualize o servidor
+
+        Libere o firewall 
+
+        clique em grupo de seguranca
+
+        va em edt inbound rules
+
+        add new rules
+
+        escolha http 
+
+        porta 80
+
+        anywhere
+
+        salve
+
+        
+
+
+
+
