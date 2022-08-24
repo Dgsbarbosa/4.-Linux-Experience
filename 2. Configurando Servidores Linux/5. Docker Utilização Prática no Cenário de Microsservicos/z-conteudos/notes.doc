@@ -14,3 +14,9 @@ Site
     docker 
 
 
+Docker Swarm
+
+    Swarm é um recurso do Docker que fornece funcionalidades de orquertraçao de conteiner, incluindo clustering nativo de hosts de Docker e agendamento de cargar de trabalho de containers, um grupo de hosts do Docker formam um cluster Swarm
+
+
+ 
