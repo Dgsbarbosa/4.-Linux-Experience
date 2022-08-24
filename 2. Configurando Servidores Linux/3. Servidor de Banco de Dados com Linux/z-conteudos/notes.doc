@@ -1,0 +1,55 @@
+Servidor de Banco de Dados com Linux
+
+O que é um servidor de banco de dados
+
+    Servidor que armazena dados
+
+
+
+Instalando o MySQL
+
+    apt install mysql-8.0
+
+
+Acessando
+
+    mysql -u root -p
+
+
+Listando
+
+    mysql> show databases;
+
+Criando 
+
+    mysql> create databases nomeDoBanco;
+
+
+Usando
+
+    mysql> use nomeDoBanco
+
+Criando tabela
+
+mysql> create table NomeDaTabela (NomeCol1, NomeCol2, NomeCol3)
+
+    Ex.:
+
+        mysql> create table Pessoas (PessoasID int, Nome varchar(50), Sobrenome varchar(50), Endereço varchar(100), Cidade varchar(50));
+
+Mostrar tabela
+
+    mysql> show tables;
+
+Selecionando a tabela
+    
+    mysql> select * FROM Pessoas;
+
+Inserindo dados 
+
+    mysql> into Pessoas (PessoaID, Nome, Sobrenome, Endereço,Cidade) VALUES (1, '','','','');
+
+Sair
+
+    mysql> exit
+

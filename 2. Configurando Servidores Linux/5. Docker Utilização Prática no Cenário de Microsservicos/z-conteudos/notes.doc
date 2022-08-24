@@ -1,0 +1,16 @@
+Docker: Utilização Prática no Cenário de Microsserviços
+
+Antigamente as aplicações eram monoliticas ou seja todos os serviços em um unico codigo
+
+Microsserviços sao um tipo de arquitetura de software, que consiste em construir aplicaçoes desmenbrando em serviços independentes. Os serviçoes se comunicam entre si usando APIs e promovem grande agilidade
+
+Cluster
+
+    Um cluster (do ingles grupo, aglomerado) consiste em computadores ligados que trabalham em conjunto, de modo que, em muitos aspectos, podem ser considerados como um unico sistema. Computadores em cluster executam a mesma tarefa, controlado e programado por software. Cada computador presente em um cluster é conhecido como nó (node) 
+
+
+Site 
+
+    docker 
+
+
